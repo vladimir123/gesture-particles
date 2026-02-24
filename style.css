@@ -1,0 +1,171 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #050510;
+    /* Deep blue/black space look */
+    color: #ffffff;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
+#canvas-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    /* Below UI */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#intro-overlay {
+    background: rgba(5, 5, 16, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 20;
+}
+
+.box {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+}
+
+.glass {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(90deg, #ff00cc, #3333ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: #cccccc;
+    margin-bottom: 2rem;
+}
+
+button {
+    background: linear-gradient(90deg, #3333ff, #00d2ff);
+    color: white;
+    border: none;
+    padding: 12px 32px;
+    font-size: 1.2rem;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 210, 255, 0.4);
+}
+
+#ui-overlay {
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 24px;
+}
+
+.status-panel {
+    padding: 20px 30px;
+    border-radius: 12px;
+    text-align: left;
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    color: #aaa;
+}
+
+.status-indicator span {
+    color: #fff;
+    margin-left: 8px;
+    font-weight: 600;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ff3366;
+    /* default disconnected/error */
+    margin-right: 10px;
+    box-shadow: 0 0 10px rgba(255, 51, 102, 0.6);
+}
+
+.dot.active {
+    background-color: #00ff99;
+    box-shadow: 0 0 10px rgba(0, 255, 153, 0.6);
+}
+
+.gesture-display {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid white;
+    border-top-color: rgba(255, 255, 255, 0.1);
+    font-size: 1.1rem;
+    color: #ccc;
+}
+
+#gesture-name {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #00d2ff;
+    display: block;
+    margin-top: 5px;
+}
+
+.webcam-preview {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    width: 240px;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+    transform: scaleX(-1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    z-index: 15;
+}

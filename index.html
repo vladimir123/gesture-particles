@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gesture Particles</title>
+  <link rel="stylesheet" href="./style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Overlay for start button to initialize Web Audio and Webcam -->
+  <div id="intro-overlay" class="overlay">
+    <div class="content box">
+      <h1>Gesture Particles</h1>
+      <p>Control chaotic 3D particles and play virtual piano and drums using hand gestures.</p>
+      <button id="start-btn">Start Experience</button>
+    </div>
+  </div>
+
+  <!-- UI Overlay for gesture status -->
+  <div id="ui-overlay" class="overlay hidden">
+    <div class="status-panel glass box">
+      <div class="status-indicator">
+        <span class="dot" id="cam-status-dot"></span> Camera: <span id="cam-status">Starting...</span>
+      </div>
+      <div class="status-indicator">
+        <span class="dot" id="hand-status-dot"></span> Hands: <span id="hand-status">Not Detected</span>
+      </div>
+      <div class="gesture-display">
+        Gesture: <span id="gesture-name">None</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Video element for MediaPipe and UI display -->
+  <video id="webcam" class="webcam-preview" autoplay playsinline style="display: none;"></video>
+
+  <!-- Three.js Canvas container -->
+  <div id="canvas-container"></div>
+
+  <script type="module" src="./main.js"></script>
+</body>
+
+</html>
